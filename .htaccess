@@ -52,3 +52,16 @@ mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
     Header set Cache-Control "private, must-revalidate"
   </filesMatch>
 </ifModule>
+
+# Wordpress friendly URLs
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /PATH/
+  RewriteRule ^index\.php$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /PATH/index.php [L]
+</IfModule>
+# END WordPress
