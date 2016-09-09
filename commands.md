@@ -1,3 +1,9 @@
+# Restart server
+
+```{r, engine='bash', count_lines}
+sudo systemctl restart apache2.service
+```
+
 # Change php version
 
 ### From php5.6 to php7.0
